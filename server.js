@@ -18,4 +18,7 @@ app.get('/face_similarity', (req, res) => res.sendFile(path.join(viewsDir, 'face
 app.get('/detect_and_draw_faces', (req, res) => res.sendFile(path.join(viewsDir, 'detectAndDrawFaces.html')))
 app.get('/detect_and_recognize_faces', (req, res) => res.sendFile(path.join(viewsDir, 'detectAndRecognizeFaces.html')))
 
-app.listen(3000, () => console.log('Listening on port 3000!'))
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
